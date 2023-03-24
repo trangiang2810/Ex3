@@ -1,10 +1,13 @@
 import Sidebar from "./sidebar";
 import Head from "./header";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Layout } from "antd";
 import Foot from "./footer";
+type Props = {
+  children: ReactNode;
+};
 
-const MainLayout: React.FC = ({ children }) => (
+const MainLayout: any = ({ children }: Props) => (
   <Layout>
     <Sidebar />
     <Layout>
