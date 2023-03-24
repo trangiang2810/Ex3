@@ -1,0 +1,75 @@
+@mixin repond($brealpoint) {
+  @if $brealpoint == phone {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $brealpoint == tab-port {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+  @if $brealpoint == desktop {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  @include repond(tab-port) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .itemContainer {
+    background: #fff;
+    padding: 0.3rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 10px;
+    border-radius: 50px 0 50px 0;
+
+    img {
+      border-radius: 50px 0 50px 0;
+      width: 100%;
+      height: auto;
+      // height: 20rem;
+    }
+    .wrapperContent {
+      padding: 0.7rem 2rem;
+      line-height: 1.8rem;
+      h2 {
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+      .price {
+        font-size: 1.2rem;
+      }
+      .reviews {
+        font-size: 0.8rem;
+        ul {
+          font-size: 0.8rem;
+
+          li {
+            margin: 0.1rem;
+          }
+        }
+      }
+      .btnAdd {
+        text-align: center;
+        button {
+          background-color: black;
+          color: #fff;
+          font-size: 1.1rem;
+          padding: 0.7rem 1rem;
+          border-radius: 10px;
+          font-weight: 600;
+          margin: 1rem 0;
+        }
+      }
+    }
+  }
+}

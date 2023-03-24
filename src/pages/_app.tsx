@@ -1,6 +1,23 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+import MainLayout from "@/Layouts/Layout";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+// const App: React.FC = ({ Component, pageProps }: AppProps) => (
+//   return (
+//     <La>
+//       <Component {...pageProps} />
+//     </La>
+//   );
+// );
+
+// export default App;
+
+const App: React.FC = ({ Component, pageProps }: AppProps) => {
+  return (
+    <MainLayout>
+      <Component {...pageProps} />
+    </MainLayout>
+  );
+};
+
+export default App;
