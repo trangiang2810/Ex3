@@ -1,4 +1,4 @@
-import Product from "@/components/Product";
+import Product from "@/container/product";
 import { Layout } from "antd";
 import React from "react";
 

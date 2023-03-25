@@ -1,22 +1,15 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import MainLayout from "@/Layouts/Layout";
-
-// const App: React.FC = ({ Component, pageProps }: AppProps) => (
-//   return (
-//     <La>
-//       <Component {...pageProps} />
-//     </La>
-//   );
-// );
-
-// export default App;
+import MainLayout from "@/container/Layout";
+import { ProductContextProvider } from "../context/Context";
 
 const App: React.FC = ({ Component, pageProps }: AppProps) => {
   return (
-    <MainLayout>
-      <Component {...pageProps} />
-    </MainLayout>
+    <ProductContextProvider>
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
+    </ProductContextProvider>
   );
 };
 

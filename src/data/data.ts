@@ -1,17 +1,16 @@
-import Chair1 from "./components/Product/access/chairs/chair1.jpg";
-import Chair2 from "./components/Product/access/chairs/chair2.jpg";
-import Chair3 from "./components/Product/access/chairs/chair3.jpg";
-import Chair4 from "./components/Product/access/chairs/chair4.jpg";
+import Chair1 from "../container/product/access/chairs/chair1.jpg";
+import Chair2 from "../container/product/access/chairs/chair2.jpg";
+import Chair3 from "../container/product/access/chairs/chair3.jpg";
+import Chair4 from "../container/product/access/chairs/chair4.jpg";
 
-import Lamp1 from "./components/Product/access/lamps/lamp1.jpg";
-import Lamp2 from "./components/Product/access/lamps/lamp2.jpg";
-import Lamp3 from "./components/Product/access/lamps/lamp3.jpg";
-import Lamp4 from "./components/Product/access/lamps/lamp4.jpg";
+import Lamp1 from "../container/product/access/lamps/lamp1.jpg";
+import Lamp2 from "../container/product/access/lamps/lamp2.jpg";
+import Lamp3 from "../container/product/access/lamps/lamp3.jpg";
 
-import Wardrobe1 from "./components/Product/access/wardrobes/wardrobe1.jpg";
-import Wardrobe2 from "./components/Product/access/wardrobes/wardrobe2.jpg";
-import Wardrobe3 from "./components/Product/access/wardrobes/wardrobe3.jpg";
-import Wardrobe4 from "./components/Product/access/wardrobes/wardrobe4.jpg";
+import Wardrobe1 from "../container/product/access/wardrobes/wardrobe1.jpg";
+import Wardrobe2 from "../container/product/access/wardrobes/wardrobe2.jpg";
+import Wardrobe3 from "../container/product/access/wardrobes/wardrobe3.jpg";
+import Wardrobe4 from "../container/product/access/wardrobes/wardrobe4.jpg";
 
 export const dataProducts: ProductItem[] = [
   {

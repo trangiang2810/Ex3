@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import styles from "./styles.module.scss";
 
 import {
-  RightOutlined,
-  LeftOutlined,
   AppstoreOutlined,
   BellOutlined,
   SettingOutlined,
@@ -13,7 +11,7 @@ import type { MenuProps } from "antd";
 import { Layout, theme, Input } from "antd";
 import Link from "next/link";
 
-const { Header, Footer, Sider } = Layout;
+const { Header } = Layout;
 const { Search } = Input;
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -33,13 +31,13 @@ export default function Head() {
           <div>
             <Search placeholder="Search..." onSearch={onSearch} />
           </div>
-          <div>
+          <div className={styles.icon}>
             <AppstoreOutlined />
           </div>
-          <div>
+          <div className={styles.icon}>
             <BellOutlined />
           </div>
-          <div>
+          <div className={styles.icon}>
             <SettingOutlined />
           </div>
         </div>

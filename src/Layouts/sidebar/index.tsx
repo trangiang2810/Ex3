@@ -23,12 +23,12 @@ function getItem(
 }
 
 const items: MenuProps["items"] = [
-  getItem(<Link href="product">Product</Link>),
+  getItem(<Link href="products">Product</Link>),
   getItem(<Link href="category">Category</Link>),
+  getItem(<Link href="addproduct">Add Product</Link>),
 ];
 
 const Sidebar: React.FC = () => {
-  const [properties, setProperties] = useState([]);
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
   };

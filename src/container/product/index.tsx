@@ -2,7 +2,8 @@ import React from "react";
 import { Layout, Rate } from "antd";
 import styles from "./styles.module.scss";
 import Image from "next/image";
-import { dataProducts } from "../../data";
+import { dataProducts } from "../../data/data";
+import axios from "axios";
 const Product: React.FC = () => (
   <Layout>
     <div className={styles.container}>

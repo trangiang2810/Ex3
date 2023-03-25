@@ -1,8 +1,8 @@
-import Sidebar from "./sidebar";
-import Head from "./header";
+import Sidebar from "../Layouts/sidebar";
+import Head from "../Layouts/header";
 import React, { ReactNode } from "react";
 import { Layout } from "antd";
-import Foot from "./footer";
+import Foot from "../Layouts/footer";
 type Props = {
   children: ReactNode;
 };
