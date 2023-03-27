@@ -23,9 +23,10 @@ function getItem(
 }
 
 const items: MenuProps["items"] = [
+  getItem(<Link href="dashboard">Dashboarch</Link>),
   getItem(<Link href="products">Product</Link>),
   getItem(<Link href="category">Category</Link>),
-  getItem(<Link href="addproduct">Add Product</Link>),
+  getItem(<Link href="createproduct">Add Product</Link>),
 ];
 
 const Sidebar: React.FC = () => {

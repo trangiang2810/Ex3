@@ -7,6 +7,9 @@
   @include repond(tab-port) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  @include repond(phone) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
   .itemContainer {
     background: #fff;
     padding: 0.3rem;
@@ -18,7 +21,8 @@
     img {
       border-radius: 50px 0 50px 0;
       width: 100%;
-      height: auto;
+      height: 250px;
+      object-fit: cover;
       // height: 20rem;
     }
     .wrapperContent {

@@ -1,4 +1,4 @@
-// import "antd/dist/reset.css";
+import { signIn } from "next-auth/react";
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
 
@@ -24,11 +24,11 @@ export default function Head() {
   return (
     <>
       <Header className={styles.nav_wraper}>
-        <Link href="/App">furniture</Link>
+        <Link href="/">furniture</Link>
 
         {/* right  */}
         <div className={styles.nav_tools}>
-          <div>
+          <div className={styles.search}>
             <Search placeholder="Search..." onSearch={onSearch} />
           </div>
           <div className={styles.icon}>
@@ -37,9 +37,17 @@ export default function Head() {
           <div className={styles.icon}>
             <BellOutlined />
           </div>
-          <div className={styles.icon}>
+          {/* <div className={styles.icon}>
             <SettingOutlined />
-          </div>
+          </div> */}
+          <button
+            className={styles.btnLogin}
+            onClick={() => {
+              signIn();
+            }}
+          >
+            Login
+          </button>
         </div>
       </Header>
     </>

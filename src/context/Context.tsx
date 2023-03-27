@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 import { dataProducts } from "@/data/data";
-import Category from "@/pages/category";
+// import Category from "@/pages/category";
 
 type ContextProviderProps = {
   children: ReactNode;

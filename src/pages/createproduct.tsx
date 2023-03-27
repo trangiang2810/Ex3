@@ -1,10 +1,10 @@
 import React from "react";
 import { Layout, Rate } from "antd";
-import AddProduct from "../container/addProduct/AddProduct";
+import CreateProduct from "../container/createProduct/CreateProduct";
 
 const Category: React.FC = () => (
   <Layout>
-    <AddProduct />
+    <CreateProduct />
   </Layout>
 );
 
