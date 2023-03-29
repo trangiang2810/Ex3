@@ -62,9 +62,6 @@
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
       rgba(17, 17, 26, 0.1) 0px 0px 8px;
     border-radius: 10px;
-    h2 {
-      font-weight: 500;
-    }
     p {
       padding-bottom: 1rem;
       color: gray;
@@ -87,6 +84,40 @@
       }
     }
   }
+  .row {
+    display: flex;
+    gap: 2rem;
+    .tasksContainer {
+      span {
+        color: rgb(165, 165, 165);
+      }
+      background: #fff;
+      box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+        rgba(17, 17, 26, 0.1) 0px 0px 8px;
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 50%;
+      thead {
+        display: none;
+      }
+      ul {
+        display: none;
+      }
+    }
+    .containerSales {
+      background: #fff;
+      box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+        rgba(17, 17, 26, 0.1) 0px 0px 8px;
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 50%;
+      height: auto;
+      span {
+        color: rgb(165, 165, 165);
+      }
+    }
+  }
+
   .containerProgress {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));

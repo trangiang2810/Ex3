@@ -1,9 +1,7 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 // import Providers from "next-auth/providers";
 import CredentialsProvider from "next-auth/providers/credentials";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
+// const { posts } = useUser();
 const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
@@ -26,8 +24,6 @@ const authOptions: NextAuthOptions = {
   ],
   pages: {
     signIn: "/auth/signin",
-    // error: "/auth/error",
-    // signOut: "/auth/signout",
   },
 };
 

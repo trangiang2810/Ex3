@@ -15,7 +15,6 @@ const Product: React.FC = () => {
       setPosts(res);
     };
     getPosts();
-    // console.log(posts);
   }, []);
 
   return (

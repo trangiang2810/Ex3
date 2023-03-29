@@ -1,33 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Layout, Rate } from "antd";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import { dataProducts } from "../../data/data";
 import axios from "axios";
-import config from "../../../config.json";
+import { useApi } from "@/context/Context";
+// import config from "../../../config.json";
 const Product: React.FC = () => {
-  const [posts, setPosts] = useState([]);
-  const apiEndPonit = "https://dummyjson.com/products";
-
-  useEffect(() => {
-    const getPosts = async () => {
-      const { data } = await axios.get(config.apiUrl);
-      setPosts(data);
-    };
-    getPosts();
-    console.log(posts);
-  }, []);
-
-  let data = Array.from(posts.products);
-  console.log(data);
+  const { posts } = useApi();
 
   return (
     <Layout>
       <div className={styles.container}>
-        {data.map((items: any, index: number): any => (
-          <div key={index} className={styles.itemContainer}>
+        {posts.products?.map((items: any) => (
+          <div key={items.id} className={styles.itemContainer}>
             <div>
-              <img src={items.images[1]} alt="hi" />{" "}
+              <img src={items.images[0]} alt="img" />
             </div>
             <div className={styles.wrapperContent}>
               <h2>{items.title}</h2>
@@ -35,7 +23,7 @@ const Product: React.FC = () => {
               <span className={styles.price}>{items.price}.000 đ</span>
 
               <div className={styles.reviews}>
-                <span>Đánh giá: </span>
+                <span>Đánh giá: {items.price}</span>
                 <Rate allowHalf defaultValue={items.rating} />
               </div>
               <div className={styles.btnAdd}>
@@ -45,8 +33,8 @@ const Product: React.FC = () => {
           </div>
         ))}
       </div>
-
-      {/* <div className={styles.container}>
+      {/* 
+      <div className={styles.container}>
         {dataProducts.map(({ id, image, title, price, rating }) => (
           <div key={id} className={styles.itemContainer}>
             <div>

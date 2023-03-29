@@ -1,36 +1,47 @@
-import { ReactNode, createContext, useEffect, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { dataProducts } from "@/data/data";
-// import Category from "@/pages/category";
+import axios from "axios";
 
 type ContextProviderProps = {
   children: ReactNode;
 };
 
-type CategoryItem = {
+type UserItem = {
   id?: number;
   title: string[];
   quntity: number;
 };
 
 interface ContextProps {
-  category: CategoryItem[];
+  posts: UserItem[];
 }
 
 const ProductContext = createContext<ContextProps>({
-  category: [],
+  posts: [],
 });
-
+export function useApi() {
+  return useContext(ProductContext);
+}
 export const ProductContextProvider = ({ children }: ContextProviderProps) => {
-  const [category, setCategory] = useState([]);
+  // const [posts, setPosts] = useState([]);
+
+  const [posts, setPosts] = useState([]);
+  const apiProduct = "https://dummyjson.com/products";
   useEffect(() => {
-    const allCategory = dataProducts.map(({ category }) => {
-      return category;
-    });
-    // const uniqueCategory = [...new Set(allCategory)];
-    // setCategory(uniqueCategory);
+    const getPosts = async () => {
+      const { data: res } = await axios.get(apiProduct);
+      setPosts(res);
+    };
+    getPosts();
   }, []);
   return (
-    <ProductContext.Provider value={{ category }}>
+    <ProductContext.Provider value={{ posts }}>
       {children}
     </ProductContext.Provider>
   );

@@ -7,11 +7,3 @@ interface ProductItem {
   rating: number;
 }
 
-interface Progress {
-  id: number;
-  title: string;
-  content: string;
-  statistical: number;
-  icon: any;
-  state: string;
-}

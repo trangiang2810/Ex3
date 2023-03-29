@@ -6,7 +6,7 @@ import Router from "next/router";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import styles from "./styles.module.scss";
 import { useSession } from "next-auth/react";
-import { Form, Input, Layout } from "antd";
+import { Input, Layout } from "antd";
 
 interface Props {}
 const SignIn: NextPage = (props): JSX.Element => {
