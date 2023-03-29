@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Layout, Rate } from "antd";
+import { Layout, Rate, Image } from "antd";
 import styles from "./styles.module.scss";
-import Image from "next/image";
 import { dataProducts } from "../../data/data";
-import axios from "axios";
 import { useApi } from "@/context/Context";
-// import config from "../../../config.json";
+import Link from "next/link";
+
 const Product: React.FC = () => {
   const { posts } = useApi();
 
@@ -15,21 +14,23 @@ const Product: React.FC = () => {
         {posts.products?.map((items: any) => (
           <div key={items.id} className={styles.itemContainer}>
             <div>
-              <img src={items.images[0]} alt="img" />
+              <Image src={items.images[0]} alt="img" />
             </div>
-            <div className={styles.wrapperContent}>
-              <h2>{items.title}</h2>
+            <Link href={`/product/${items.id}`}>
+              <div className={styles.wrapperContent}>
+                <h2>{items.title}</h2>
 
-              <span className={styles.price}>{items.price}.000 đ</span>
+                <span className={styles.price}>{items.price}.000 đ</span>
 
-              <div className={styles.reviews}>
-                <span>Đánh giá: {items.price}</span>
-                <Rate allowHalf defaultValue={items.rating} />
+                <div className={styles.reviews}>
+                  <span>Đánh giá: {items.price}</span>
+                  <Rate allowHalf defaultValue={items.rating} />
+                </div>
+                <div className={styles.btnAdd}>
+                  <button>Thêm sản phẩm</button>
+                </div>
               </div>
-              <div className={styles.btnAdd}>
-                <button>Thêm sản phẩm</button>
-              </div>
-            </div>
+            </Link>
           </div>
         ))}
       </div>

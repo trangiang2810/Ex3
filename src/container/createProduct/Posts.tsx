@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../../config.json";
-import { Button } from "antd";
+import { Button, Image } from "antd";
 import { useRouter } from "next/router";
 const CreateProduct: React.FC = () => {
   const [posts, setPosts] = useState([]);
@@ -28,10 +28,11 @@ const CreateProduct: React.FC = () => {
 
   return (
     <div>
-      <Button onClick={() => router.push("/post/new")}>Add product</Button>
+      <Button onClick={() => router.push(`/post/new`)}>Add product</Button>
       <table>
         <thead>
           <tr>
+            <th>id</th>
             <th>images</th>
             <th>Title</th>
             <th>description</th>
@@ -49,18 +50,20 @@ const CreateProduct: React.FC = () => {
         <tbody>
           {posts.products?.map((post: any) => (
             <tr key={post.id}>
+              <td>{post.id}</td>
               <td>
-                <img style={{ width: "100%" }} src={post.images[0]} alt="" />
+                <Image src={post.images[0]} alt="" />
               </td>
               <td style={{ display: "inline" }}>{post.title}</td>
               <td>{post.description}</td>
               <td>{post.price}</td>
+              <td>{post.discountPercentage}</td>
               <td>{post.rating}</td>
               <td>{post.stock}</td>
               <td>{post.brand}</td>
               <td>{post.category}</td>
-              <td>{post.thumbnail}</td>
-              <td>{post.category}</td>
+              <Image src={post.thumbnail} alt="" />
+
               <td>
                 <Button onClick={() => router.push(`/post/${post.id}`)}>
                   Update
