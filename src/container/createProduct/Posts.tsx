@@ -16,6 +16,16 @@ const CreateProduct: React.FC = () => {
   }, []);
   console.log(posts);
 
+  const handleDelete = async (post: any) => {
+    try {
+      setPosts(posts.products?.filter((p: any) => p.id !== post.id));
+      await axios.delete(`${config.apiUrl}/${post.id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log();
+
   return (
     <div>
       <Button onClick={() => router.push("/post/new")}>Add product</Button>
@@ -57,7 +67,7 @@ const CreateProduct: React.FC = () => {
                 </Button>
               </td>
               <td>
-                <Button>Delete</Button>
+                <Button onClick={() => handleDelete(post)}>Delete</Button>
               </td>
             </tr>
           ))}
