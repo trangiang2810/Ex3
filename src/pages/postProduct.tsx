@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Rate } from "antd";
-import CreateProduct from "../../container/createProduct/Posts";
+import CreateProduct from "../container/createProduct/Posts";
 
 const Category: React.FC = () => (
   <Layout>

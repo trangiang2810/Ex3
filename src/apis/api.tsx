@@ -1,16 +1,32 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../config.json";
-
 export const useApi = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const { data } = await axios.get(config.apiUrl);
-      setPosts(data);
-    };
-    fetchPosts();
-  }, []);
-  console.log(posts);
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  };
+  return {
+    getProducts: async () => {
+      let data: string[] = [];
+      await axios
+        .get("https://dummyjson.com/products", config)
+        .then((response) => {
+          data = response.data.products;
+        })
+        .catch((error) => console.log(error));
+      return data;
+    },
+    getProductById: async (productId: string) => {
+      let data: string[] = [];
+      await axios
+        .get(`https://dummyjson.com/products/${productId}`, config)
+        .then((response) => {
+          data = response.data;
+        })
+        .catch((error) => console.log(error));
+      return data;
+    },
+  };
 };

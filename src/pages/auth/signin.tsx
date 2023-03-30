@@ -1,16 +1,18 @@
 import { NextPage } from "next";
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import { useState, FormEventHandler } from "react";
 import Link from "next/link";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import styles from "./styles.module.scss";
 import { useSession } from "next-auth/react";
-import { Input, Layout } from "antd";
+import { Button, Input, Layout } from "antd";
 
 interface Props {}
 const SignIn: NextPage = (props): JSX.Element => {
-  const { status, data } = useSession();
+  const { status: session, data } = useSession();
+
+  const router = useRouter();
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
@@ -20,8 +22,13 @@ const SignIn: NextPage = (props): JSX.Element => {
       password: userInfo.password,
       redirect: false,
     });
+
     console.log(res);
   };
+  const handleLogin = () => {
+    router.push("/testlogin");
+  };
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -43,8 +50,9 @@ const SignIn: NextPage = (props): JSX.Element => {
             type="password"
             placeholder="1234"
           />
-          <button className={styles.btn}>Login</button>
-          {/* <input type="submit" value="Login" /> */}
+          <button className={styles.btn} onClick={handleLogin}>
+            Login
+          </button>
         </form>
       </div>
     </Layout>

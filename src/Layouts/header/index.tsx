@@ -1,4 +1,4 @@
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
 
@@ -16,7 +16,6 @@ const { Search } = Input;
 type MenuItem = Required<MenuProps>["items"][number];
 
 export default function Head() {
-  const [collapsed, setCollapsed] = useState(false);
   const onSearch = (value: string) => console.log(value);
   const {
     token: { colorBgContainer },
@@ -37,9 +36,6 @@ export default function Head() {
           <div className={styles.icon}>
             <BellOutlined />
           </div>
-          {/* <div className={styles.icon}>
-            <SettingOutlined />
-          </div> */}
           <button
             className={styles.btnLogin}
             onClick={() => {
@@ -47,6 +43,9 @@ export default function Head() {
             }}
           >
             Login
+          </button>
+          <button className={styles.btnSignOut} onClick={() => signOut()}>
+            SignOut
           </button>
         </div>
       </Header>

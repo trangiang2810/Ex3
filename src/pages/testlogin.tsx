@@ -10,8 +10,11 @@ const Protected: NextPage = (): JSX.Element => {
   useEffect(() => {
     if (status === "unauthenticated") Router.replace("/auth/signin");
   }, [status]);
-  if (status === "authenticated") return <Product />;
-
-  return <div>hihhih</div>;
+  return (
+    <div>
+      <h1 style={{ color: "red" }}>ĐĂNG NHẬP THÀNH CÔNG</h1>
+      <Product />
+    </div>
+  );
 };
 export default Protected;

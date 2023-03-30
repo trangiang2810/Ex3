@@ -2,18 +2,25 @@ import React, { useState, useEffect, useContext } from "react";
 import { Layout, Rate, Image } from "antd";
 import styles from "./styles.module.scss";
 import { dataProducts } from "../../data/data";
-import { useApi } from "@/context/Context";
+import { useApi } from "../../apis/api";
 import Link from "next/link";
 
 const Product: React.FC = () => {
-  const { posts } = useApi();
-
+  const [dataProducts, setDataProducts] = useState([]);
+  const $api = useApi();
+  useEffect(() => {
+    const getProduct = async () => {
+      const data: any = await $api.getProducts();
+      setDataProducts(data);
+    };
+    getProduct();
+  }, []);
   return (
     <Layout>
       <div className={styles.container}>
-        {posts.products?.map((items: any) => (
+        {dataProducts.map((items: any) => (
           <div key={items.id} className={styles.itemContainer}>
-            <div>
+            <div className={styles.imgItems}>
               <Image src={items.images[0]} alt="img" />
             </div>
             <Link href={`/product/${items.id}`}>

@@ -1,7 +1,10 @@
+import { useState } from "react";
 import NextAuth, { NextAuthOptions } from "next-auth";
 // import Providers from "next-auth/providers";
 import CredentialsProvider from "next-auth/providers/credentials";
-// const { posts } = useUser();
+import axios from "axios";
+import { useApi } from "@/apis/api";
+const $api = useApi;
 const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",

@@ -3,32 +3,34 @@ import axios from "axios";
 import config from "../../../config.json";
 import { Button, Image } from "antd";
 import { useRouter } from "next/router";
+import { useApi } from "@/apis/api";
 const CreateProduct: React.FC = () => {
   const [posts, setPosts] = useState([]);
+  const $api = useApi();
   const router = useRouter();
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const { data } = await axios.get(config.apiUrl);
+      const data: any = await $api.getProducts();
       setPosts(data);
     };
     fetchPosts();
   }, []);
+
   console.log(posts);
 
   const handleDelete = async (post: any) => {
     try {
-      setPosts(posts.products?.filter((p: any) => p.id !== post.id));
+      setPosts(posts.filter((p: any) => p.id !== post.id));
       await axios.delete(`${config.apiUrl}/${post.id}`);
     } catch (error) {
       console.log(error);
     }
   };
-  console.log();
 
   return (
     <div>
-      <Button onClick={() => router.push(`/post/new`)}>Add product</Button>
+      <Button onClick={() => router.push(`post/new`)}>Add product</Button>
       <table>
         <thead>
           <tr>
@@ -48,7 +50,7 @@ const CreateProduct: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {posts.products?.map((post: any) => (
+          {posts.map((post: any) => (
             <tr key={post.id}>
               <td>{post.id}</td>
               <td>

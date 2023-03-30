@@ -8,13 +8,11 @@ type MenuItem = Required<MenuProps>["items"][number];
 const { Sider } = Layout;
 function getItem(
   label: React.ReactNode,
-  // key: React.ReactNode,
   icon?: React.ReactNode,
   children?: MenuItem[],
   type?: "group"
 ): MenuItem {
   return {
-    // key,
     icon,
     children,
     label,
@@ -23,10 +21,11 @@ function getItem(
 }
 
 const items: MenuProps["items"] = [
-  getItem(<Link href="dashboard">Dashboarch</Link>),
-  getItem(<Link href="products">Product</Link>),
-  getItem(<Link href="category">Category</Link>),
-  getItem(<Link href="/post/postProduct">Add Product</Link>),
+  getItem(<Link href="/dashboard">Dashboarch</Link>),
+  getItem(<Link href="/products">Product</Link>),
+  getItem(<Link href="/category">Category</Link>),
+  getItem(<Link href="/postProduct">Add Product</Link>),
+  getItem(<Link href="/testlogin">testlogin</Link>),
 ];
 
 const Sidebar: React.FC = () => {
@@ -45,20 +44,6 @@ const Sidebar: React.FC = () => {
         defaultOpenKeys={["sub1"]}
         mode="inline"
         items={items}
-        // items={[
-        //   {
-        //     key: "1",
-        //     label: "Ghế",
-        //   },
-        //   {
-        //     key: "2",
-        //     label: "Tủ",
-        //   },
-        //   {
-        //     key: "3",
-        //     label: "Đèn",
-        //   },
-        // ]}
       />
     </Sider>
   );
