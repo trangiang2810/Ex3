@@ -21,6 +21,7 @@ function getItem(
 }
 
 const items: MenuProps["items"] = [
+  getItem(<Link href="/">Main</Link>),
   getItem(<Link href="/dashboard">Dashboarch</Link>),
   getItem(<Link href="/products">Product</Link>),
   getItem(<Link href="/category">Category</Link>),

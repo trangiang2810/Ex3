@@ -5,6 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 import { useApi } from "@/apis/api";
 const $api = useApi;
+
 const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",

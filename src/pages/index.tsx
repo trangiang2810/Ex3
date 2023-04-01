@@ -1,9 +1,13 @@
 import Head from "next/head";
-import Product from "@/container/product";
-import { Layout } from "antd";
-import React from "react";
+import { Button, Layout } from "antd";
+import React, { useContext } from "react";
+import { DarkModeContext } from "@/contexts/Context";
+
+import { FiSun, FiMoon } from "react-icons/fi";
 
 export default function Home() {
+  const { darkMode, setDarkMode, themeStyle, themeBtn }: any =
+    useContext(DarkModeContext);
   return (
     <>
       <Head>
@@ -12,8 +16,19 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Product />
+      <Layout style={{ ...themeStyle }}>
+        <Button style={{ ...themeBtn }} onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? (
+            <span>
+              <FiMoon />
+            </span>
+          ) : (
+            <span>
+              <FiSun />
+            </span>
+          )}
+        </Button>
+        <h1>heloooo</h1>
       </Layout>
     </>
   );
