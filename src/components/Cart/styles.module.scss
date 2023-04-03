@@ -1,0 +1,20 @@
+.container {
+  .productItems {
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+    }
+    span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .quantity {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+}

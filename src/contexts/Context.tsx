@@ -14,13 +14,13 @@ export const DarkModeProvider = ({ children }: ContextProviderProps) => {
       color: "#000",
       fontSize: "3rem",
       alignItems: "center",
-      paddingTop: "45%",
+      justifyContent: "center",
     },
     night: {
       backgroundColor: "#000",
       color: "#ffffff",
       alignItems: "center",
-      paddingTop: "45%",
+      justifyContent: "center",
     },
   };
   const themeBtn = {
@@ -31,6 +31,7 @@ export const DarkModeProvider = ({ children }: ContextProviderProps) => {
       background: "yellow",
     },
   };
+
   return (
     <DarkModeContext.Provider
       value={{
